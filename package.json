@@ -4,6 +4,7 @@
   "description": "A scraper for the food coop's prices",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt Hampel",
