@@ -1,0 +1,17 @@
+{
+  "name": "coop",
+  "version": "1.0.0",
+  "description": "A scraper for the food coop's prices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Hampel",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "osmosis": "^0.1.1",
+    "pg": "^4.4.3"
+  }
+}
