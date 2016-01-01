@@ -10,6 +10,7 @@
   "author": "Matt Hampel",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^1.2.0",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "osmosis": "^0.1.1",

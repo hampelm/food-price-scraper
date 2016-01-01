@@ -1,4 +1,5 @@
 var _ = require('lodash');
+require('dotenv').load();
 var moment = require('moment');
 var osmosis = require('osmosis');
 var data = [];
