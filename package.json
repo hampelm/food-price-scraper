@@ -11,9 +11,11 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^1.2.0",
+    "express": "^4.13.3",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "osmosis": "^0.1.1",
-    "pg": "^4.4.3"
+    "pg": "^4.4.3",
+    "pg-parse-float": "0.0.1"
   }
 }
