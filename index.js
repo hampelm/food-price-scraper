@@ -30,7 +30,7 @@ function save() {
     for (i = 0; i < data.length; i++) {
       client.query('INSERT INTO coop (name, category, price, units, organic, origin, date) values ($1,$2,$3,$4,$5,$6,$7)', [
           data[i].name,
-          data[i].category,
+          '',
           data[i].price,
           data[i].units,
           data[i].organic,
@@ -49,6 +49,12 @@ function parse() {
     var raw_price = data[i].raw_price;
     data[i].price = Number(_.trimLeft(raw_price, '$').split(' ')[0]);
 
+    // Clean up the name
+    var name = data[i].name.split('\n');
+    if (name) {
+      data[i].name = name[0];
+    }
+
     var units = data[i].raw_price.split(' ');
     units.shift();
     data[i].units = units.join(' ');
@@ -56,6 +62,7 @@ function parse() {
 
     // Add the date
     data[i].date = date;
+    console.log(data[i]);
   }
 
   // Save all the data
@@ -68,10 +75,9 @@ osmosis
 .log(console.log)
 .set({
     'name': 'td[1]',
-    'category': 'td[2]',
-    'raw_price': 'td[3]',
-    'organic': 'td[4]',
-    'origin': 'td[5]'
+    'raw_price': 'td[2]',
+    'organic': 'td[3]',
+    'origin': 'td[4]'
 })
 .data(function(listing) {
   data.push(listing);
