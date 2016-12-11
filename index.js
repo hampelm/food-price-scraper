@@ -1,3 +1,5 @@
+'use strict';
+
 var _ = require('lodash');
 require('dotenv').load();
 var moment = require('moment');
@@ -7,6 +9,9 @@ var date = moment().format("YYYY-MM-DD");
 
 var pg = require('pg');
 var conString = process.env.POSTGRES;
+
+// We use this regex to replace annoying whitespace from nbsps
+var damnSpace = String.fromCharCode(160);
 
 
 function save() {
@@ -27,6 +32,7 @@ function save() {
       done();
     }
 
+    // Replace whitespace
     for (i = 0; i < data.length; i++) {
       client.query('INSERT INTO coop (name, category, price, units, organic, origin, date) values ($1,$2,$3,$4,$5,$6,$7)', [
           data[i].name,
@@ -53,12 +59,18 @@ function parse() {
     var name = data[i].name.split('\n');
     if (name) {
       data[i].name = name[0];
+
+      // Remove annyoing nbsps
+      data[i].name = data[i].name.replace(damnSpace, ' ');
     }
 
     var units = data[i].raw_price.split(' ');
     units.shift();
     data[i].units = units.join(' ');
     delete data[i].raw_price;
+
+    // Remove annyoing nbsps
+    data[i].units = data[i].units.replace(damnSpace, ' ');
 
     // Add the date
     data[i].date = date;

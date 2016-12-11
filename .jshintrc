@@ -1,0 +1,15 @@
+{
+  "eqeqeq": true,   // Prohibits the use of == and != in favor of === and !==
+  "unused": "vars", // Warn unused variables, but not unused params
+  "strict": true,   // Require `use strict` pragma in every file.
+  "freeze": true,   // prohibit overwriting prototypes of native objects
+
+  // Environment options
+  "mocha": true,
+  "node": true,
+  "unused": "vars",
+
+  "globals": {
+    "$": false
+  }
+}
